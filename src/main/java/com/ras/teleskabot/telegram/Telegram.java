@@ -1,5 +1,6 @@
 package com.ras.teleskabot.telegram;
 
+import com.ras.teleskabot.telegram.handlers.WebhookHandlers;
 import com.ras.teleskabot.telegram.settings.Config;
 
 import org.slf4j.Logger;
@@ -30,6 +31,7 @@ public class Telegram {
 
         try {
             telegramBotsApi = createSelfSignedTelegramBotsApi();
+            telegramBotsApi.registerBot(new WebhookHandlers());
         } catch (TelegramApiException e) {
             logger.error("Failed create method - Webhook (" + e.getMessage() + ")");
         }
