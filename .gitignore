@@ -118,5 +118,9 @@ buildNumber.properties
 .mvn/timing.properties
 .mvn/wrapper/maven-wrapper.jar
 
+### Bot ###
+# Private settings #
+src/main/java/com/ras/teleskabot/telegram/settings/Config.class
+
 
 # End of https://www.gitignore.io/api/java,maven,intellij+all
