@@ -1,5 +1,6 @@
 package com.ras.teleskabot.telegram.handlers;
 
+import com.ras.teleskabot.telegram.commands.DispatcherCommand;
 import com.ras.teleskabot.telegram.settings.Config;
 
 import org.telegram.telegrambots.bots.TelegramWebhookBot;
@@ -11,7 +12,7 @@ public class WebhookHandlers extends TelegramWebhookBot {
     @Override
     public BotApiMethod onWebhookUpdateReceived(Update update) {
         if (update.hasMessage() && update.getMessage().hasText()) {
-            return null;
+            return new DispatcherCommand().execute(update);
         }
 
         return null;
