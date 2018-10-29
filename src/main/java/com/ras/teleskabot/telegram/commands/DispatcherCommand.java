@@ -1,5 +1,7 @@
 package com.ras.teleskabot.telegram.commands;
 
+import com.ras.teleskabot.telegram.settings.Commands;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -13,6 +15,24 @@ public class DispatcherCommand {
 
     public SendMessage execute(final Update update) {
         final Message message = update.getMessage();
+
+        switch (message.getText()) {
+            case Commands.startCommand: {
+                return new StartCommand().execute(update);
+            }
+            case Commands.announcementCommand: {
+                return new AnnouncementCommand().execute(update);
+            }
+            case Commands.intensiveCommand: {
+                return new IntensiveCommand().execute(update);
+            }
+            case Commands.informationCitiesCommand: {
+                break;
+            }
+            case Commands.workWithBotCommand: {
+                break;
+            }
+        }
 
         return sendHelpMessage(message);
     }
