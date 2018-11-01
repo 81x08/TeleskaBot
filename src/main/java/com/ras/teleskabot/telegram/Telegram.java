@@ -15,8 +15,6 @@ public class Telegram {
     private static final Logger logger = LoggerFactory.getLogger(Telegram.class);
 
     static {
-        logger.info("-========== Start program ==========-");
-
         ApiContextInitializer.init();
     }
 
@@ -25,8 +23,6 @@ public class Telegram {
     }
 
     private void createTelegramBotsApi() {
-        logger.info("Create Telegram bot");
-
         TelegramBotsApi telegramBotsApi;
 
         try {
@@ -38,8 +34,6 @@ public class Telegram {
     }
 
     private TelegramBotsApi createSelfSignedTelegramBotsApi() throws TelegramApiException  {
-        logger.info("Running the event handler method - Webhook");
-
         return new TelegramBotsApi(Config.pathToCertificateStore, Config.certificateStorePassword, Config.EXTERNAL_WEBHOOK_URL, Config.INTERNAL_WEBHOOK_URL, Config.pathToCertificatePublicKey);
     }
 
