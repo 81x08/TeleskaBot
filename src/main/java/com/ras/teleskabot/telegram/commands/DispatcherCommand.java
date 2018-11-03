@@ -20,6 +20,9 @@ public class DispatcherCommand {
             case Commands.startCommand: {
                 return new StartCommand().execute(update);
             }
+            case Commands.articlesCommand: {
+                break;
+            }
             case Commands.announcementCommand: {
                 return new AnnouncementCommand().execute(update);
             }
@@ -39,9 +42,9 @@ public class DispatcherCommand {
 
     private SendMessage sendHelpMessage(final Message message) {
         return new SendMessage()
-                .setChatId(message.getChatId())
                 .enableMarkdown(true)
-                .setText("Чтобы воспользоваться ботом выберите команду из ниже предложенного меню.");
+                .setText("Чтобы воспользоваться ботом выберите команду из ниже предложенного меню.")
+                .setChatId(message.getChatId());
     }
 
 }
